@@ -16,17 +16,13 @@ This Python program utilizes OpenCV to recognize hand-drawn letters from an inpu
 
 2. Install the required libraries using pip:
     ```bash
-    pip install opencv-python numpy
+    pip install -r requirements.txt
     ```
 
 ## Usage
 
 1. Run the Python script:
     ```bash
-    pip install -r requirements.txt
-
-    ```
-2.```bash
     python hand_Ges.py
 
-```
+    ```
