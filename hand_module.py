@@ -63,6 +63,25 @@ class hand_detect():
             
         a = fingers.count(1)
         return a
+    def drawxy(self,img):
+        if self.results.multi_hand_landmarks:
+            for landmarks in self.results.multi_hand_landmarks:
+                # You can process the landmarks to detect hand gestures
+                # For a simple example, we will calculate the distance between the thumb and index finger
+                thumb_tip = landmarks.landmark[self.mp_hands.HandLandmark.THUMB_TIP]
+                index_finger_tip = landmarks.landmark[self.mp_hands.HandLandmark.INDEX_FINGER_TIP]
+
+                distance = cv2.norm(
+                    (thumb_tip.x, thumb_tip.y), (index_finger_tip.x, index_finger_tip.y)
+                )
+
+                if distance < 0.05:
+                    h , w , c = img.shape
+                    x1,y1 = int(index_finger_tip.x*w) , int(index_finger_tip.y*h)
+                    return (x1,y1)
+
+        return 0
+
 
 
 def main():
