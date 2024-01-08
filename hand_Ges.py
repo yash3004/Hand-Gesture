@@ -26,7 +26,8 @@ def draw(img , x , y):
       cv2.drawMarker(img, (int(x),int(y)), color=(0,255,0), markerType=cv2.MARKER_CROSS, thickness=2)
       return img
 
-cap = cv2.VideoCapture(0)
+path = 'sample.mp4'
+cap = cv2.VideoCapture(path)
 while cap.isOpened():
     success , img = cap.read()
     if not success:
